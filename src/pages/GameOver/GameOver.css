@@ -12,6 +12,7 @@
 }
 
 .GameOverdiv{
+    margin: 0px 30px;
     width: 500px;
     height: 370px;
     display: flex;
