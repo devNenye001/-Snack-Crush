@@ -1,0 +1,14 @@
+.Button{
+    padding: 15px 60px;
+    background-color: #FFC926;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.Button:hover{
+    background-color: hsl(45, 100%, 67%);
+}
+
+.Button:active{
+    background-color: hsl(45, 100%, 77%);
+}

@@ -1,0 +1,159 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.GamePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.gameCenter span {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.right-bottom {
+  position: fixed;
+  top: 50%;
+  right: 25%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 30px;
+}
+.container1,
+.container {
+  border: 2px solid black;
+  display: flex;
+  padding: 0px 20px;
+  align-items: center;
+  width: auto;
+}
+
+.container {
+  border: none;
+}
+
+.container p {
+  color: red;
+  font-size: 20px;
+}
+
+.scoreboard {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.big {
+  font-size: 30px !important;
+}
+
+.snack-score,
+.challange-snack {
+  display: flex;
+  align-items: center;
+}
+
+.snack-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.snack-grid div {
+  border: 2px solid black;
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.snack-grid div img {
+  height: 100px;
+  width: 100px;
+}
+
+.right {
+  position: absolute;
+  right: 70px;
+  display: flex;
+  top: 30%;
+}
+
+.praises {
+  position: absolute;
+  top: 50%;
+  color: blue;
+  font-size: 30px;
+}
+@media (max-width: 1200px) {
+  .right {
+    margin-top: 20px;
+    height: 440px;
+    left: 70px;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .GamePage {
+    flex-direction: column;
+  }
+  .container1 {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  .gameCenter {
+    max-width: 300px;
+  }
+
+  .snack-grid div img {
+    height: 90px;
+    width: 70px;
+  }
+
+  .right {
+    margin-top: 20px;
+    height: auto;
+    right: 0px;
+    left: 0%;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+  .right-bottom {
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    right: 0%;
+    width: 300px;
+    height: 50px;
+    margin-right: 0px;
+  }
+
+  .praises {
+    font-size: 24px;
+  }
+
+  .big {
+    font-size: 24px !important;
+  }
+}
