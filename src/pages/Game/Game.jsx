@@ -8,7 +8,8 @@ import Snickers from "/snickers.svg";
 import Pizza from "/pizza.svg";
 // import Cherry from "/cherry.svg";
 import Burger from "/burger.svg";
-import Sandwich from "/sandwich.svg";
+// import Sandwich from "/sandwich.svg";
+import IceCream from "/ice.svg"
 // import Cookie from "/cookie.svg";
 import Snack from "/snack.svg";
 import Donut from "/donut.svg";
@@ -33,7 +34,7 @@ import reshuffleSoundFile from "/shuffle.mp3";
 
 import GameOver from "../GameOver/GameOver";
 
-const snacks = [Hotdog, Snickers, Pizza, Burger, Sandwich, Snack, Donut];
+const snacks = [Hotdog, Snickers, Pizza, Burger, IceCream, Snack, Donut];
 
 const GRID_SIZE = 4; // ✅ 4x4 grid
 
