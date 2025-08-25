@@ -85,8 +85,9 @@
 }
 
 .snack-grid div img {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
+  margin: 8px;
 }
 
 .right {
@@ -139,8 +140,9 @@
   }
 
   .snack-grid div img {
-    height: 90px;
-    width: 70px;
+    height: 80px;
+    width: 60px;
+    margin: 5px;
   }
 
   .right {
