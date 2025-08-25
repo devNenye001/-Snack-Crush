@@ -3,7 +3,7 @@ import "./GameOver.css";
 import Star from "/star.svg";
 
 const GameOver = ({ challengeSnack, name, snacksCollected, points, performance, restart }) => {
-  // performance could be "good", "almost", "bad", "passed"
+  // Render crowns
   const renderCrowns = () => {
     switch (performance) {
       case "good":
@@ -42,14 +42,27 @@ const GameOver = ({ challengeSnack, name, snacksCollected, points, performance, 
     }
   };
 
+  // Render comment
+  const renderComment = () => {
+    switch (performance) {
+      case "good":
+        return `Nice try, ${name}! You were close.`;
+      case "almost":
+        return `So close, ${name}! Just a little more next time.`;
+      case "passed":
+        return `Congratulations ${name}! You crushed it 🎉`;
+      case "bad":
+      default:
+        return `You can do better, ${name}.`;
+    }
+  };
+
   return (
     <div className="gameoverpage">
       <div className="GameOverdiv">
         <h1>GAME OVER</h1>
 
-        <div className="crowns">
-          {renderCrowns()}
-        </div>
+        <div className="crowns">{renderCrowns()}</div>
 
         <div className="scores">
           {/* Challenge score */}
@@ -63,8 +76,8 @@ const GameOver = ({ challengeSnack, name, snacksCollected, points, performance, 
           </div>
         </div>
 
-        <p className="comment">You can do better, {name}</p>
-        <Button label="PLAY AGAIN" onClick={restart}/>
+        <p className="comment">{renderComment()}</p>
+        <Button label="PLAY AGAIN" onClick={restart} />
       </div>
     </div>
   );

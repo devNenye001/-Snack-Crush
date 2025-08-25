@@ -4,14 +4,37 @@ import "./PowerUpCard.css";
 import purchaseSound from "/purchase.mp3";
 import failSound from "/fail.mp3";
 
-const PowerUpCard = ({ title, description, image, price, onBought, onClose }) => {
+const PowerUpCard = ({
+  title,
+  description,
+  image,
+  price,
+  onBuy,
+  onClose,
+}) => {
   const [balance, setBalance] = useState(() =>
     parseInt(localStorage.getItem("stars") || "0")
   );
 
+  // 🔄 Keep balance synced with localStorage
   useEffect(() => {
-    const ls = parseInt(localStorage.getItem("stars") || "0");
-    if (!isNaN(ls)) setBalance(ls);
+    const updateBalance = () => {
+      const ls = parseInt(localStorage.getItem("stars") || "0");
+      if (!isNaN(ls)) setBalance(ls);
+    };
+
+    // Listen for localStorage changes (other tabs + same tab updates)
+    window.addEventListener("storage", updateBalance);
+    // Also re-check when window gets focus
+    window.addEventListener("focus", updateBalance);
+
+    // Initial check
+    updateBalance();
+
+    return () => {
+      window.removeEventListener("storage", updateBalance);
+      window.removeEventListener("focus", updateBalance);
+    };
   }, []);
 
   const canAfford = balance >= price;
@@ -29,8 +52,11 @@ const PowerUpCard = ({ title, description, image, price, onBought, onClose }) =>
       localStorage.setItem("stars", newBal);
       setBalance(newBal);
       playSound(purchaseSound);
-      onBought?.(newBal); // notify parent
-      onClose?.(); // close modal
+
+      // ✅ notify parent so other UI updates instantly
+      onBuy?.(newBal);
+
+      onClose?.();
     } else {
       playSound(failSound);
     }
@@ -42,8 +68,6 @@ const PowerUpCard = ({ title, description, image, price, onBought, onClose }) =>
   return (
     <div className="powerup-card-overlay" onClick={handleOverlayClick}>
       <div className="powerup-card" onClick={stopPropagation}>
-        {/* <button className="powerup-close" onClick={onClose}>×</button> */}
-
         {/* Current balance */}
         <div className="stars-owned">
           <img src="/star.svg" alt="star" />
